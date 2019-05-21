@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import './auth/login.css'
-import axios from 'axios'
-import Login from './auth/login.jsx'
-import { Redirect, NavLink, Link } from 'react-router-dom'
 
-const Main = () => {
+import './config.css';
+import axios from 'axios';
+import Login from './auth/login.jsx';
+import RegisterConfig from './configSetting/Register.jsx'
+import { Redirect, NavLink, Link } from 'react-router-dom';
+
+const Config = () => {
     const [email, setEmail] = useState('');
     const [token, setToken] = useState(localStorage.getItem('Authorization') || '')
     const [userId, setUserId] = useState(localStorage.getItem('user_id') || '')
     const [userName, setUserName] = useState('');
+    const [wich_section, setWich_section] = useState('');
 
     console.log(token);
 
@@ -31,16 +34,27 @@ const Main = () => {
         return <Redirect to='/login' component={Login} exact />
     }
 
+    const show_register = () => {
+        setWich_section(<RegisterConfig></RegisterConfig>)
 
+    }
 
     return (
 
 
-        <div>
+        <div className="config_main_div">
+            <div id="cssmenu2">
+                <ul>
+                    <li class="active"><Link onClick={() => show_register()} to="#"><i class="fa fa-fw fa-user-plus"></i> Register</Link></li>
+                </ul>
+            </div>
 
-            <NavLink activeClassName={'is-active'} activeStyle={{ fontSize: '1.5em', color: 'green' }} to='/config' exact>Config</NavLink>
             <span> Welcome {userName ? userName : "loading"} </span>
-        </div>
+
+
+            {wich_section ? wich_section : "Select section to edit"}
+
+        </div >
 
     )
 
@@ -48,4 +62,4 @@ const Main = () => {
 
 }
 
-export default Main;
+export default Config;

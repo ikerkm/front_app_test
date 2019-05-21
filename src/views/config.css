@@ -1,0 +1,4 @@
+.config_main_div {
+    display: flex;
+    flex-direction: row;
+}

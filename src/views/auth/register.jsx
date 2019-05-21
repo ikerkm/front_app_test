@@ -81,7 +81,7 @@ const Register = () => {
                                 {email_already ? "valid mail" : "not valid"}
 
                             </span>
-                            <input className="input100" type="text" onChange={(e) => setEmail(e.target.value)} onKeyUp={() => check_mail()} name="email" placeholder="Email" />
+                            <input className="input100" type="text" onChange={(e) => setEmail(e.target.value)} onBlur={() => check_mail()} name="email" placeholder="Email" />
                             <span className="focus-input100"></span>
                             <span className="symbol-input100">
                                 <i className="fa fa-envelope" aria-hidden="true"></i>

@@ -13,6 +13,7 @@ class RegisterConfig extends Component {
             data_form: ''
         }
     }
+    componen
     componentDidMount() {
 
         axios.get("http://127.0.0.1:8000/api/get_register_form").then(res => {
